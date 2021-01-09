@@ -1,10 +1,12 @@
 package history;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
 
 @Service
+@Qualifier("linkedList")
 public class HistoryHandlerLinkedListImpl implements HistoryHandler {
 
     private final LinkedList<HistoryRecord> undoTextHistory = new LinkedList<>();

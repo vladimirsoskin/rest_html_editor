@@ -1,8 +1,10 @@
 package editor;
 
 import history.HistoryHandler;
+import history.HistoryHandlerArrayListImpl;
 import history.HistoryRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import storage.Mark;
 import storage.MarkupStorage;
@@ -18,6 +20,7 @@ public class EditorImpl implements Editor {
     private MarkupStorage markup;
 
     @Autowired
+    @Qualifier("arrayList")
     private HistoryHandler history;
 
     private String generateHTML(String message) {
