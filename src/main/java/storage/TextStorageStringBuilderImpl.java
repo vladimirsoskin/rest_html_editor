@@ -8,16 +8,6 @@ public class TextStorageStringBuilderImpl implements TextStorage {
     private final StringBuilder text = new StringBuilder();
 
     @Override
-    public String substring(Integer from, Integer to) {
-        return text.substring(from, to + 1);
-    }
-
-    @Override
-    public String substring(Integer position){
-        return text.substring(position, position + 1);
-    }
-
-    @Override
     public int length() {
         return text.length();
     }

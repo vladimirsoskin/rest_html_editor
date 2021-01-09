@@ -12,7 +12,7 @@ public class EditorController {
     @Autowired
     Editor editor;
 
-    @PostMapping(value = "/add", produces="text/html")
+    @PostMapping(value = "/add", produces="text/html;charset=UTF-8")
     public String add(@RequestParam(name="string") String s,
                       @RequestParam(name="position", required = false) Integer position)
     {
@@ -23,40 +23,40 @@ public class EditorController {
         }
     }
 
-    @PostMapping(value = "/remove", produces="text/html")
+    @PostMapping(value = "/remove", produces="text/html;charset=UTF-8")
     public String remove(@RequestParam(name="from") Integer from,
                          @RequestParam(name="to")Integer to)
     {
         return editor.remove(from, to);
     }
 
-    @PostMapping(value = "/italic", produces="text/html")
+    @PostMapping(value = "/italic", produces="text/html;charset=UTF-8")
     public String italic(@RequestParam(name="from") Integer from,
                          @RequestParam(name="to") Integer to)
     {
         return editor.italic(from, to);
     }
 
-    @PostMapping(value = "/bold", produces="text/html")
+    @PostMapping(value = "/bold", produces="text/html;charset=UTF-8")
     public String bold(@RequestParam(name="from") Integer from,
                        @RequestParam(name="to") Integer to)
     {
         return editor.bold(from, to);
     }
 
-    @PostMapping(value = "/underline", produces="text/html")
+    @PostMapping(value = "/underline", produces="text/html;charset=UTF-8")
     public String underline(@RequestParam(name="from") Integer from,
                             @RequestParam(name="to") Integer to)
     {
         return editor.underline(from, to);
     }
 
-    @PostMapping(value = "/redo", produces="text/html")
+    @PostMapping(value = "/redo", produces="text/html;charset=UTF-8")
     public String redo(){
         return editor.redo();
     }
 
-    @PostMapping(value = "/undo", produces="text/html")
+    @PostMapping(value = "/undo", produces="text/html;charset=UTF-8")
     public String undo(){
         return editor.undo();
     }

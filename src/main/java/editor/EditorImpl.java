@@ -21,19 +21,23 @@ public class EditorImpl implements Editor {
     private HistoryHandler history;
 
     private String generateHTML(String message) {
+        if(markup.size() != text.length())
+            return "Internal error. Markup and text size are different. contact developer";
         StringBuilder res = new StringBuilder();
         Mark prevMark = new Mark();
-        for (int i = 0; i < markup.size(); i++) {
+        String textString = text.getText();
+        int symbols = markup.size();
+        for (int i = 0; i < symbols; i++) {
             //close tag if markup changes
             Mark mark = markup.get(i);
             if(!prevMark.equals(mark)){
-                res.append(mark.getCloseTag());
+                res.append(prevMark.getCloseTag());
                 res.append(mark.getOpenTag());
                 prevMark = mark;
             }
 
             //add symbol itself. change new line to HTML tag
-            String symbol = text.substring(i);
+            String symbol = textString.substring(i, i+1);
             if (symbol.equals("\r")) {
                 res.append("<br>");
             } else {

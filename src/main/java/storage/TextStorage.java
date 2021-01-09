@@ -1,9 +1,6 @@
 package storage;
 
 public interface TextStorage {
-    String substring(Integer from, Integer to);
-
-    String substring(Integer position);
 
     int length();
 
